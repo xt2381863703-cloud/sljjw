@@ -12,7 +12,12 @@ $$P(X_{1:t},M \mid Z_{1:t},U_{1:t},X_0)$$
 
 自身位置和里程计测量，使用特殊欧几里得群变换矩阵 $T \in SE(2)$ 或 $T \in SE(3)$，其中 $t$ 是平移向量，$R$ 是旋转矩阵 
 
-$$T = \begin{bmatrix} R & t \\ 0 & 1 \end{bmatrix}$$
+$$
+T = \begin{bmatrix}
+R & t \\ 
+0 & 1 
+\end{bmatrix}
+$$
 
 任何 SLAM 方法的最终目标都是确定轨迹 $X_{1:t}$ 和地标地图 $M$ 的最大后验概率：
 
