@@ -156,7 +156,7 @@ $$
     - Coarse-to-fine pose correction
 
 - Milli-RIO：雷达 + LSTM Motion Model（Unscented Kalman Filter UKF 后端）。不是纯深度学习，使用了过滤器做后端，流程如下：
-    - LSTM 学习运动模型 f(x)
+    - LSTM 学习运动模型 $f(x)$
     - UKF 做真正的位姿更新
     - Radar NDT 匹配作为观测
 
@@ -170,7 +170,7 @@ $$
 
 4. 深度学习难以建模“刚体运动约束”
 
-5. 回归方法会累积 drift，而几何方法会自我纠错
+5. 回归方法会累积漂移，而几何方法会自我纠错
 ```
 Radar Scan → Deep Network → keypoint/mask/descriptor
                                   ↓
