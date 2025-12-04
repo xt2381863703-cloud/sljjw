@@ -22,7 +22,7 @@ $$
 任何 SLAM 方法的最终目标都是确定轨迹 $X_{1:t}$ 和地标地图 $M$ 的最大后验概率：
 
 $$
-\left\\{ X^{\*}, M^{\*} \right\\} = \arg\max_\left\\{ \{X, M\} \right\\} P(X_{1:t}, M \mid Z_{1:t}, U_{1:t}, X_0)
+\left\\{ X^{\*}, M^{\*} \right\\} = \argmax_\left\\{ \{X, M\} \right\\} P(X_{1:t}, M \mid Z_{1:t}, U_{1:t}, X_0)
 $$
 
  
