@@ -1,8 +1,8 @@
 <div align="center">
 
-**用于自主导航的毫米波雷达频谱预测**
+<font size="5"><b>用于自主导航的毫米波雷达频谱预测</b></font>
 
-Predicting Millimeter Wave Radar Spectra for Autonomous Navigation
+<font size="2">Predicting Millimeter Wave Radar Spectra for Autonomous Navigation</font>
 
 </div>
 
