@@ -1,8 +1,3 @@
-docker compose down -v
-docker compose build --no-cache
-docker compose up
-
-
 # Parking Platform (Demo) - Mingrencha
 
 > Tech: Spring Boot 3 + Maven + Docker Compose + SQLite + Redis + RabbitMQ  
@@ -67,3 +62,7 @@ bash scripts/04_billing_and_pay.sh
 ## 网络问题：Maven Central 502/超时怎么办？
 本项目在每个服务目录内内置了 `maven-settings.xml`，Docker 构建时会自动使用镜像源（HuaweiCloud）并启用重试。
 如果你仍然遇到依赖下载失败，可在本机网络切换（例如手机热点）后重试 `docker compose build --no-cache`。
+
+docker compose down -v
+docker compose build --no-cache
+docker compose up
