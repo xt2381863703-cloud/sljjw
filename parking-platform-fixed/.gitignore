@@ -1,0 +1,5 @@
+target/
+.idea/
+*.iml
+scripts/.token
+scripts/.reservation_id

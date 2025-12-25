@@ -1,0 +1,112 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: parking-postgres
+    environment:
+      POSTGRES_DB: parking
+      POSTGRES_USER: parking
+      POSTGRES_PASSWORD: parking
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U parking" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7
+    ports: ["6379:6379"]
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  parking-service:
+    build:
+      context: .
+      dockerfile: parking-service/Dockerfile
+      args:
+        JAR_PATH: parking-service/target/parking-service-1.0.0.jar
+    environment:
+      SPRING_PROFILES_ACTIVE: default
+      LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_SECURITY: DEBUG
+    ports: ["8081:8081"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
+      rabbitmq:
+        condition: service_started
+
+  reservation-service:
+    build:
+      context: .
+      dockerfile: reservation-service/Dockerfile
+      args:
+        JAR_PATH: reservation-service/target/reservation-service-1.0.0.jar
+    ports: ["8082:8082"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
+      rabbitmq:
+        condition: service_started
+      parking-service:
+        condition: service_started
+
+  billing-service:
+    build:
+      context: .
+      dockerfile: billing-service/Dockerfile
+      args:
+        JAR_PATH: billing-service/target/billing-service-1.0.0.jar
+    ports: ["8083:8083"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
+      rabbitmq:
+        condition: service_started
+
+  payment-service:
+    build:
+      context: .
+      dockerfile: payment-service/Dockerfile
+      args:
+        JAR_PATH: payment-service/target/payment-service-1.0.0.jar
+    ports: ["8084:8084"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
+      rabbitmq:
+        condition: service_started
+      billing-service:
+        condition: service_started
+
+  iot-service:
+    build:
+      context: .
+      dockerfile: iot-service/Dockerfile
+      args:
+        JAR_PATH: iot-service/target/iot-service-1.0.0.jar
+    ports: ["8085:8085"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
+      rabbitmq:
+        condition: service_started
+
+volumes:
+  pgdata:
