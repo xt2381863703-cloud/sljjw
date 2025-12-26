@@ -43,7 +43,7 @@ RA (速度维度压掉，只看距离 + 角度)的压缩公式:
 
 $$
 x^{RA}[r,a]
-= 10 \log_{10}\!\left(
+= 10 \log_{10}\left(
 \frac{1}{N_D}
 \sum_{d}
 \left| X^{RAD}[r,a,d] \right|^2
