@@ -76,7 +76,8 @@ Peak Receptive Field(PRF): 卷积之前，先决定哪些点是可以用来当�
 
 $$
 \mathcal{R}_{PRF}
-=\left\{
+=\left
+\{
 x_c,\,
 \{ x_r^{(i)} \}_{i=1}^{N_r}
 \right\},
@@ -122,7 +123,8 @@ $$
 =x_c
 -\mathrm{Vec}
 \!\left(
-\left\{
+\left
+\{
 \sum_{i=1}^{N_r}
 w_j^{(i)} * x_r^{(i)}
 \right\}_{j=1}^{C_{\text{out}}}
@@ -153,7 +155,8 @@ $$
 \mathrm{PKC}^{\star}(\mathcal{R}; W)
 =\mathrm{Vec}
 \!\left(
-\left\{
+\left
+\{
 \sum_{i=1}^{N_r}
 w_j^{(i)} * \bigl( x_c - x_r^{(i)} \bigr)
 \right\}_{j=1}^{C_{\text{out}}}
