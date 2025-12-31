@@ -78,13 +78,13 @@ $$
 \begin{aligned}
 \mathcal{R}_{\mathrm{PRF}}
 &=
-\left\{ x_c,\; \{x_r^{(i)}\}_{i=1}^{N_r} \right\},
+\{\, x_c,\; \{x_r^{(i)}\}_{i=1}^{N_r} \,\},
 &\text{s.t.}\;
 |b_G|
 <
-\left|p_r^{(i)} - p_c\right|
+|p_r^{(i)} - p_c|
 \le
-\left|b_R + b_G\right|.
+|b_R + b_G|.
 \end{aligned}
 $$
 
