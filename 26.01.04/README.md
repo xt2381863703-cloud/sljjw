@@ -75,7 +75,7 @@ Peak Receptive Field(PRF): 卷积之前，先决定哪些点是可以用来当�
 参考点和中心点在雷达图中的位置 $p_r^{(i)}, p_c$
 
 $$
-\mathcal{R}_{PRF}=
+\mathcal{R}_{\mathrm{PRF}}=
 \left\{
 x_c,\,
 \{ x_r^{(i)} \}_{i=1}^{N_r}
