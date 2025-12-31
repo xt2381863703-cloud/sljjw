@@ -75,16 +75,19 @@ Peak Receptive Field(PRF): 卷积之前，先决定哪些点是可以用来当�
 参考点和中心点在雷达图中的位置 $p_r^{(i)}, p_c$
 
 $$
-\mathcal{R}_{\mathrm{PRF}}=
-\left\{x_c,\,\{ x_r^{(i)} \}_{i=1}^{N_r}\right\},
-\quad
-\text{s.t.}\;
+\begin{aligned}
+\mathcal{R}_{\mathrm{PRF}}
+&=
+\left\{ x_c,\; \{x_r^{(i)}\}_{i=1}^{N_r} \right\},
+&\text{s.t.}\;
 |b_G|
 <
-\left| p_r^{(i)} - p_c \right|
+\left|p_r^{(i)} - p_c\right|
 \le
-\left| b_R + b_G \right|
+\left|b_R + b_G\right|.
+\end{aligned}
 $$
+
 
 约束限制了参考点不能在保护区内, 也不能超过最大参考范围
 
