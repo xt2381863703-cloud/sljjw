@@ -78,7 +78,7 @@ $$
 \begin{aligned}
 \mathcal{R}_{\mathrm{PRF}}
 &=
-\{\, x_c,\; \{x_r^{(i)}\}_{i=1}^{N_r} \,\},
+\{\, x_c,\; \{x_r^{(i)}\}_{i=1}^{N_r} \,\}, 
 &\text{s.t.}\;
 |b_G|
 <
@@ -87,7 +87,6 @@ $$
 |b_R + b_G|.
 \end{aligned}
 $$
-
 
 约束限制了参考点不能在保护区内, 也不能超过最大参考范围
 
@@ -118,15 +117,14 @@ $$
 3. 输出 = 中心点 − Σ(参考点 × 各自权重). 输出大, 中心点就像目标; 输出小, 中心点就像噪声
 
 $$
-\mathrm{PKC}(\mathcal{R}; W)
-=x_c
--\mathrm{Vec}
+\mathrm{PKC}(\mathcal{R}; W)=
+x_c-
+\mathrm{Vec}
 \!\left(
-\left
-\{
+\{\, 
 \sum_{i=1}^{N_r}
 w_j^{(i)} * x_r^{(i)}
-\right\}_{j=1}^{C_{\text{out}}}
+\,\}_{j=1}^{C_{\text{out}}}
 \right)
 $$
 
@@ -151,14 +149,13 @@ Vanilla-PKC: 最基础的 PeakConv, 几乎完全模仿 CFAR, 除了:
 输出: Σ((中心点 - 参考点) × 各自权重). 可以区分中心点和周围每一个点的差异有多明显
 
 $$
-\mathrm{PKC}^{\star}(\mathcal{R}; W)
-=\mathrm{Vec}
+\mathrm{PKC}^{\star}(\mathcal{R}; W)=
+\mathrm{Vec}
 \!\left(
-\left
-\{
+\{\, 
 \sum_{i=1}^{N_r}
 w_j^{(i)} * \bigl( x_c - x_r^{(i)} \bigr)
-\right\}_{j=1}^{C_{\text{out}}}
+\,\}_{j=1}^{C_{\text{out}}}
 \right)
 $$
 
@@ -221,6 +218,8 @@ LSE 融合三个视角的特征
 而来自它在算对的东西 [表2]
 
 此外作者还和主流的 RSS 算法(SoTA)做对比, 在同一数据集、同一你指标下 [表3]
+
+表见文章, 此处不展示了
 
 ## 写在后面
 
